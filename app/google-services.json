@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "855216338822",
+    "project_id": "spamkeyboard-cb815",
+    "storage_bucket": "spamkeyboard-cb815.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855216338822:android:aa61309e7c4924ad661e07",
+        "android_client_info": {
+          "package_name": "com.example.spamkeyboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855216338822-gghu6b2vi01v5caac8o8ruumqs55167r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_Rr4E9NKdpxq09qRl8PuIxgOLgGj5Zd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855216338822-gghu6b2vi01v5caac8o8ruumqs55167r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

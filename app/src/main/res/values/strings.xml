@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SpamKeyboard</string>
+    <string name="home_nav">Home</string>
+    <string name="suggestion_nav">Suggestions</string>
+    <string name="profile_nav">Profile</string>
+    <string name="dont_have_suggestions">You dont have any suggestion</string>
+    <string name="take_a_suggestion">Type your suggestion..</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="new_suggestion">Type your new suggestion</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
