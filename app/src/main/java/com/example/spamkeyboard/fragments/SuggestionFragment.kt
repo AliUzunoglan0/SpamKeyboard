@@ -3,12 +3,10 @@ package com.example.spamkeyboard.fragments
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,14 +53,12 @@ class SuggestionFragment : Fragment(), View.OnClickListener {
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onResume() {
         super.onResume()
 
         just()
     }
 
-    @RequiresApi(Build.VERSION_CODES.P)
     fun just() {
         val sqhm = SQLiteHelperMethods(context, "suggestion.db", null, 1, null)
         adapter = SuggestionAdapter(context, sqhm.showSuggestions())
@@ -73,7 +69,6 @@ class SuggestionFragment : Fragment(), View.OnClickListener {
         mRecyclerView?.addItemDecoration(dividerItemDecoration)
     }
 
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onClick(p0: View?) {
         when (p0?.id) {
             R.id.add_fab -> {

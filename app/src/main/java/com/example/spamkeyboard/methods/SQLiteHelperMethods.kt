@@ -6,18 +6,15 @@ import android.database.Cursor
 import android.database.DatabaseErrorHandler
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.example.spamkeyboard.models.SuggestionModel
 
-@RequiresApi(Build.VERSION_CODES.P)
 class SQLiteHelperMethods(
     context: Context?,
     name: String?,
     factory: SQLiteDatabase.CursorFactory?,
     version: Int,
     errorHandler: DatabaseErrorHandler?
-) : SQLiteOpenHelper(context, name, factory, version,errorHandler) {
+) : SQLiteOpenHelper(context, name, factory, version, errorHandler) {
 
     private val DATABASE_NAME = "suggestion"
 
@@ -31,9 +28,24 @@ class SQLiteHelperMethods(
 
     fun addSuggestion(sugg: String) {
         val db: SQLiteDatabase = this.writableDatabase
-        val values: ContentValues = ContentValues()
+        val values = ContentValues()
         values.put("suggestion", sugg)
         db.insert(DATABASE_NAME, null, values)
+        db.close()
+    }
+
+    fun findSuggestion(id: String) :String {
+        val db: SQLiteDatabase = this.writableDatabase
+        val findQuery = "SELECT * FROM " + DATABASE_NAME + " WHERE id = " + id + " "
+        db.execSQL(findQuery)
+        db.close()
+        return db.toString()
+    }
+
+    fun updateSuggestion(id : String, newSuggestion : String){
+        val db: SQLiteDatabase = this.writableDatabase
+        val updateQuery = "UPDATE $DATABASE_NAME SET suggestion = $newSuggestion WHERE id = $id"
+        db.execSQL(updateQuery)
         db.close()
     }
 
@@ -46,7 +58,7 @@ class SQLiteHelperMethods(
 
     fun showSuggestions(): ArrayList<SuggestionModel> {
         val db: SQLiteDatabase = this.writableDatabase
-        val showQuery = "SELECT * FROM " + DATABASE_NAME
+        val showQuery = "SELECT * FROM $DATABASE_NAME"
         val cursor: Cursor = db.rawQuery(showQuery, null)
         var suggestionList = ArrayList<SuggestionModel>()
         var sugg: String
