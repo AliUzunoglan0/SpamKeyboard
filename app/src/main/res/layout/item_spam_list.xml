@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:weightSum="1">
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="1"
@@ -13,7 +13,7 @@
         android:gravity="center"
         android:id="@+id/sugg_item_id"
         android:textColor="@color/black_shark"
-        android:textSize="@dimen/text_size_20" />
+        android:textSize="@dimen/text_size_20" />-->
 
 
     <androidx.appcompat.widget.AppCompatTextView

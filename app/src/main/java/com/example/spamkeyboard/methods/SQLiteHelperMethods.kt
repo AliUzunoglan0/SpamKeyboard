@@ -1,5 +1,6 @@
 package com.example.spamkeyboard.methods
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -42,7 +43,7 @@ class SQLiteHelperMethods(
         return db.toString()
     }
 
-    fun updateSuggestion(id : String, newSuggestion : String){
+    fun updateSuggestion(id : Int, newSuggestion : String){
         val db: SQLiteDatabase = this.writableDatabase
         val updateQuery = "UPDATE $DATABASE_NAME SET suggestion = $newSuggestion WHERE id = $id"
         db.execSQL(updateQuery)

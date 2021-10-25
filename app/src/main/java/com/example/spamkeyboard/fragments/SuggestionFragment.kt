@@ -1,5 +1,6 @@
 package com.example.spamkeyboard.fragments
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
@@ -20,7 +21,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class SuggestionFragment : Fragment(), View.OnClickListener {
-
 
     lateinit var sugBinding: FragmentSuggestionBinding
     lateinit var sug_popup_binding: AddSuggestionsPopupBinding
@@ -55,11 +55,11 @@ class SuggestionFragment : Fragment(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-
-        just()
+        setRecyclerView()
     }
 
-    fun just() {
+    @SuppressLint("NotifyDataSetChanged")
+    fun setRecyclerView() {
         val sqhm = SQLiteHelperMethods(context, "suggestion.db", null, 1, null)
         adapter = SuggestionAdapter(context, sqhm.showSuggestions())
         val mRecyclerView = view?.findViewById<RecyclerView>(R.id.suggestion_recycler_view)
@@ -74,10 +74,9 @@ class SuggestionFragment : Fragment(), View.OnClickListener {
             R.id.add_fab -> {
 
                 sug_popup_binding = AddSuggestionsPopupBinding.inflate(layoutInflater)
-                val sqhm: SQLiteHelperMethods =
-                    SQLiteHelperMethods(context, "suggestion.db", null, 1, null)
-
+                val sqhm = SQLiteHelperMethods(context, "suggestion.db", null, 1, null)
                 val builder: AlertDialog.Builder = AlertDialog.Builder(context)
+
                 builder.setTitle(R.string.new_suggestion)
                 builder.setView(sug_popup_binding.root)
                 builder.setNegativeButton("Cancel", null)
@@ -87,11 +86,9 @@ class SuggestionFragment : Fragment(), View.OnClickListener {
                         onResume()
                     })
                 builder.show()
-
             }
         }
     }
-
 }
 
 
