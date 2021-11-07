@@ -1,6 +1,5 @@
 package com.example.spamkeyboard.methods
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -37,7 +36,7 @@ class SQLiteHelperMethods(
 
     fun findSuggestion(id: String) :String {
         val db: SQLiteDatabase = this.writableDatabase
-        val findQuery = "SELECT * FROM " + DATABASE_NAME + " WHERE id = " + id + " "
+        val findQuery = "SELECT * FROM $DATABASE_NAME WHERE id = $id "
         db.execSQL(findQuery)
         db.close()
         return db.toString()
@@ -52,7 +51,7 @@ class SQLiteHelperMethods(
 
     fun deleteSuggestion(id: Int) {
         val db: SQLiteDatabase = this.writableDatabase
-        val deleteQuery = "DELETE FROM " + DATABASE_NAME + " WHERE id = " + id + " "
+        val deleteQuery = "DELETE FROM $DATABASE_NAME WHERE id = $id "
         db.execSQL(deleteQuery)
         db.close()
     }
