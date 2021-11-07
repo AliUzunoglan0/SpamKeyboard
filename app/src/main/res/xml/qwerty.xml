@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:horizontalGap="0px"
+    android:keyWidth="100%p"
+    android:keyHeight="60dp"
+    android:verticalGap="5px">
 
-</PreferenceScreen>
+    <Row>
+        <Key
+            android:codes="54"
+            android:keyEdgeFlags="left" />
+        <Key android:codes="52" />
+        <Key android:codes="31" />
+        <Key android:codes="50" />
+        <Key android:codes="30" />
+        <Key android:codes="42" />
+        <Key android:codes="41" />
+        <Key android:codes="41" />
+        <Key android:codes="41" />
+        <Key android:codes="41" />
+        <Key android:codes="41" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="-2"
+            android:keyEdgeFlags="left" />
+        <Key
+            android:codes="32"
+            android:isRepeatable="true"
+            android:keyLabel="Space" />
+        <Key
+            android:codes="-5"
+            android:isRepeatable="true"
+            android:keyIcon="@android:drawable/ic_input_delete" />
+        <Key
+            android:codes="-4"
+            android:keyEdgeFlags="right" />
+    </Row>
+
+
+</Keyboard>
